@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neon-blue: #00f0ff;
+  --color-cyan: #00ffff;
+  --color-purple: #b500ff;
+  --color-pink: #ff00ff;
+  --color-dark-purple: #1a0b2e;
+  --color-dark-blue: #0b1021;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+}
+
+body {
+  background: linear-gradient(135deg, #000000 0%, #1a0b2e 50%, #0b1021 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl transition-all duration-300;
+  }
+  .glass-card:hover {
+    @apply border-white/20 bg-white/10 shadow-[0_8px_32px_0_rgba(181,0,255,0.2)];
+  }
+
+  .btn-neon {
+    @apply px-6 py-3 font-semibold text-white rounded-lg transition-all duration-300 bg-white/5 border border-white/10;
+  }
+  .btn-neon:focus, .btn-neon:hover {
+    @apply border-cyan shadow-[0_0_15px_rgba(0,255,255,0.5)] bg-white/10 outline-none;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[--color-neon-blue] via-[--color-purple] to-[--color-pink];
+  }
+}
